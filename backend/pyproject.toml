@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "backend"
+version = "0.1.0"
+description = "FastAPI Tutorial Phresh"
+authors = ["Sandy Tu <sandy.tu@silksoftware.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+fastapi = "^0.79.0"
+uvicorn = "^0.18.2"
+pydantic = "^1.9.1"
+email-validator = "^1.2.1"
+databases = {extras = ["postgresql"], version = "^0.6.0"}
+SQLAlchemy = "^1.4.39"
+alembic = "^1.8.1"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
