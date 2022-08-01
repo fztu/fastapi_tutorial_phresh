@@ -1,11 +1,11 @@
 [tool.poetry]
 name = "backend"
 version = "0.1.0"
-description = "FastAPI Tutorial Phresh"
-authors = ["Sandy Tu <sandy.tu@silksoftware.com>"]
+description = ""
+authors = ["Fazhi Tu <fazhi.tu@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
 fastapi = "^0.79.0"
 uvicorn = "^0.18.2"
 pydantic = "^1.9.1"
@@ -16,10 +16,12 @@ alembic = "^1.8.1"
 psycopg2-binary = "^2.9.3"
 
 [tool.poetry.dev-dependencies]
-pytest = "^7.1.2"
-pytest-asyncio = "^0.19.0"
-httpx = "^0.23.0"
-asgi-lifespan = "^1.0.1"
+pytest = "^5.4.2"
+pytest-asyncio = "^0.12.0"
+pytest-xdist = "^1.32.0"
+httpx = "^0.12.1"
+asgi-lifespan = "^1.0.0"
+docker = "^4.2.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

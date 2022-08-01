@@ -6,7 +6,6 @@ from fastapi import FastAPI
 
 from starlette.status import HTTP_200_OK, HTTP_201_CREATED, HTTP_404_NOT_FOUND, HTTP_422_UNPROCESSABLE_ENTITY
 
-
 from app.models.cleaning import CleaningCreate, CleaningInDB
 
 # decorate all tests with @pytest.mark.asyncio
@@ -15,7 +14,7 @@ pytestmark = pytest.mark.asyncio
 
 @pytest.fixture
 def new_cleaning():
-    return CleaningCreate(name="test cleaning", description="test description", price=0.00, cleaning_type="spot_clean")
+    return CleaningCreate(name="test cleaning", description="test description", price=0.00, cleaning_type="spot_clean",)
 
 
 class TestCleaningsRoutes:
@@ -57,6 +56,9 @@ class TestCreateCleaning:
         assert res.status_code == status_code
 
 
+# ...other code
+
+
 class TestGetCleaning:
     async def test_get_cleaning_by_id(self, app: FastAPI, client: AsyncClient, test_cleaning: CleaningInDB) -> None:
         res = await client.get(app.url_path_for("cleanings:get-cleaning-by-id", id=test_cleaning.id))
@@ -70,3 +72,4 @@ class TestGetCleaning:
     async def test_wrong_id_returns_error(self, app: FastAPI, client: AsyncClient, id: int, status_code: int) -> None:
         res = await client.get(app.url_path_for("cleanings:get-cleaning-by-id", id=id))
         assert res.status_code == status_code
+
