@@ -29,30 +29,30 @@ The technology stack used to create the backend of this application is as follow
     - vscode
 
 
-## Roadmap and Completed Articles
+## Learning Progress and article links
 
 ✅ - Completed
 🛄 - In progress
 📱 - UI
 🚂 - Backend
 
-- Part 1: Up and running with FastAPI and docker ✅🚂
-- Part 2: Configuring a postgresql db with your dockerized FastAPI app ✅🚂
-- Part 3: Hooking FastAPI endpoints up to a postgres database ✅🚂
-- Part 4: Testing FastAPI endpoints with docker and pytest ✅🚂
-- Part 5: Resource management with FastAPI 🚂
-- Part 6: Designing a robust user model in a FastAPI app 🚂
-- Part 7: User auth in FastAPI with jwt tokens 🚂
-- Part 8: Auth dependencies in FastAPI 🚂
-- Part 9: Setting up user profiles in FastAPI 🚂
-- Part 10: User owned resources in FastAPI 🚂
-- Part 11: Marketplace functionality in FastAPI 🚂
-- Part 12: Evaluations and SQL aggregations in FastAPI 🚂
-- Part 13: Phresh frontend - bootstrapping a react app 📱
-- Part 14: Frontend navigation with react router 📱
-- Part 15: Managing auth state with redux 📱
-- Part 16: Client-side protected routes and user registration 📱
-- Part 17: Consuming a FastAPI backend from a react frontend 🚂📱
+- [Part 1: Up and running with FastAPI and docker](https://www.jeffastor.com/blog/up-and-running-with-fastapi-and-docker) ✅🚂
+- [Part 2: Configuring a postgresql db with your dockerized FastAPI app](https://www.jeffastor.com/blog/pairing-a-postgresql-db-with-your-dockerized-fastapi-app) ✅🚂
+- [Part 3: Hooking FastAPI endpoints up to a postgres database](https://www.jeffastor.com/blog/hooking-fastapi-endpoints-up-to-a-postgres-database) ✅🚂
+- [Part 4: Testing FastAPI endpoints with docker and pytest](https://www.jeffastor.com/blog/testing-fastapi-endpoints-with-docker-and-pytest) ✅🚂
+- [Part 5: Resource management with FastAPI](https://www.jeffastor.com/blog/resource-management-with-fastapi) 🚂
+- [Part 6: Designing a robust user model in a FastAPI app](https://www.jeffastor.com/blog/designing-a-robust-user-model-in-a-fastapi-app) 🚂
+- [Part 7: User auth in FastAPI with jwt tokens](https://www.jeffastor.com/blog/authenticating-users-in-fastapi-with-jwt-tokens) 🚂
+- [Part 8: Auth dependencies in FastAPI](https://www.jeffastor.com/blog/authentication-dependencies-in-fastapi) 🚂
+- [Part 9: Setting up user profiles in FastAPI](https://www.jeffastor.com/blog/setting-up-user-profiles-in-fastapi) 🚂
+- [Part 10: User owned resources in FastAPI](https://www.jeffastor.com/blog/user-owned-resources-in-fastapi) 🚂
+- [Part 11: Marketplace functionality in FastAPI](https://www.jeffastor.com/blog/marketplace-functionality-in-fastapi) 🚂
+- [Part 12: Evaluations and SQL aggregations in FastAPI](https://www.jeffastor.com/blog/evaluations-and-sql-aggreations-in-fastapi) 🚂
+- [Part 13: Phresh frontend - bootstrapping a react app](https://www.jeffastor.com/blog/phresh-frontend-bootstrapping-a-react-app) 📱
+- [Part 14: Frontend navigation with react router](https://www.jeffastor.com/blog/frontend-navigation-with-react-router) 📱
+- [Part 15: Managing auth state with redux](https://www.jeffastor.com/blog/managing-auth-state-with-redux) 📱
+- [Part 16: Client-side protected routes and user registration](https://www.jeffastor.com/blog/client-side-protected-routes-and-user-registration) 📱
+- [Part 17: Consuming a FastAPI backend from a react frontend](https://www.jeffastor.com/blog/consuming-a-fastapi-backend-from-a-react-frontend) 🚂📱
 
 
 ## Note
