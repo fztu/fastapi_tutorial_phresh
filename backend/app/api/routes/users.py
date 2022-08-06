@@ -10,8 +10,7 @@ router = APIRouter()
 
 @router.post("/", response_model=UserPublic, name="users:register-new-user", status_code=HTTP_201_CREATED)
 async def register_new_user(
-    new_user: UserCreate = Body(..., embed=True),
-    user_repo: UsersRepository = Depends(get_repository(UsersRepository)),
+    new_user: UserCreate = Body(..., embed=True), user_repo: UsersRepository = Depends(get_repository(UsersRepository)),
 ) -> UserPublic:
     created_user = await user_repo.register_new_user(new_user=new_user)
 

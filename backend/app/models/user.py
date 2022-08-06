@@ -1,16 +1,8 @@
-import string
 from typing import Optional
-from xml.dom import minicompat
 
-from pydantic import EmailStr, constr, validator
+from pydantic import EmailStr, constr
 
 from app.models.core import DateTimeModelMixin, IDModelMixin, CoreModel
-
-def validate_username(username: str) -> str:
-    allowed = string.ascii_letters + string.digits + '_' + "-"
-    assert all(c in allowed for c in username), "Username must be ASCII letters, digits, '_', or '-'"
-    assert len(username) >= 3, "Username must be at least 3 characters long"
-    return username
 
 class UserBase(CoreModel):
     """
@@ -22,28 +14,27 @@ class UserBase(CoreModel):
     is_active: bool = True
     is_superuser: bool = False
 
-class UserCreate(UserBase):
+
+class UserCreate(CoreModel):
     """
-    Email, username, and password are required
+    Email, username, and password are required for registering a new user
     """
     email: EmailStr
     password: constr(min_length=7, max_length=100)
-    username: constr(min_length=3, regex="^[a-zA-Z0-9_\-]+$")
+    username: constr(min_length=3, regex="[a-zA-Z0-9_-]+$")
 
-    @validator('username', pre=True)
-    def username_is_valid(cls, username: str) -> str:
-        return validate_username(username)
 
 class UserUpdate(CoreModel):
     """
     Users are allowed to update their email and username
     """
     email: Optional[EmailStr]
-    username: Optional[constr(min_length=3, regex="^[a-zA-Z0-9_-]+$")]
+    username: Optional[constr(min_length=3, regex="[a-zA-Z0-9_-]+$")]
+
 
 class UserPasswordUpdate(CoreModel):
     """
-    User can change their password only
+    Users can change their password
     """
     password: constr(min_length=7, max_length=100)
     salt: str

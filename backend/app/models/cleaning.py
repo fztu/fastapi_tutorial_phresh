@@ -14,6 +14,7 @@ class CleaningBase(CoreModel):
     """
     All common characteristics of our Cleaning resource
     """
+
     name: Optional[str]
     description: Optional[str]
     price: Optional[float]
@@ -37,4 +38,3 @@ class CleaningInDB(IDModelMixin, CleaningBase):
 
 class CleaningPublic(IDModelMixin, CleaningBase):
     pass
-
