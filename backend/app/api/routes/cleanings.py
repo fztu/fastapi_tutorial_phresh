@@ -12,7 +12,7 @@ router = APIRouter()
 
 @router.get("/", response_model=List[CleaningPublic], name="cleanings:get-all-cleanings")
 async def get_all_cleanings(
-    cleanings_repo: CleaningsRepository = Depends(get_repository(CleaningsRepository))
+    cleanings_repo: CleaningsRepository = Depends(get_repository(CleaningsRepository)),
 ) -> List[CleaningPublic]:
     return await cleanings_repo.get_all_cleanings()
 
@@ -26,16 +26,6 @@ async def get_cleaning_by_id(
     return cleaning
 
 
-@router.get("/")
-async def get_all_cleanings() -> List[dict]:
-    cleanings = [
-        {"id": 1, "name": "My house", "cleaning_type": "full_clean", "price_per_hour": 29.99},
-        {"id": 2, "name": "Someone else's house", "cleaning_type": "spot_clean", "price_per_hour": 19.99},
-    ]
-
-    return cleanings
-
-
 @router.post("/", response_model=CleaningPublic, name="cleanings:create-cleaning", status_code=HTTP_201_CREATED)
 async def create_new_cleaning(
     new_cleaning: CleaningCreate = Body(..., embed=True),
@@ -45,24 +35,17 @@ async def create_new_cleaning(
 
     return created_cleaning
 
-@router.put(
-    "/{id}/", 
-    response_model=CleaningPublic, 
-    name="cleanings:update-cleaning-by-id",
-)
+@router.put("/{id}/", response_model=CleaningPublic, name="cleanings:update-cleaning-by-id")
 async def update_cleaning_by_id(
     id: int = Path(..., ge=1, title="The ID of the cleaning to update."),
     cleaning_update: CleaningUpdate = Body(..., embed=True),
     cleanings_repo: CleaningsRepository = Depends(get_repository(CleaningsRepository)),
 ) -> CleaningPublic:
-    updated_cleaning = await cleanings_repo.update_cleaning(
-        id=id, cleaning_update=cleaning_update,
-    )
+    updated_cleaning = await cleanings_repo.update_cleaning(id=id, cleaning_update=cleaning_update)
+
     if not updated_cleaning:
-        raise HTTPException(
-            status_code=HTTP_404_NOT_FOUND, 
-            detail="No cleaning found with that id.",
-        )
+        raise HTTPException(status_code=HTTP_404_NOT_FOUND, detail="No cleaning found with that id.")
+
     return updated_cleaning
 
 @router.delete("/{id}/", response_model=int, name="cleanings:delete-cleaning-by-id")
@@ -72,8 +55,6 @@ async def delete_cleaning_by_id(
 ) -> int:
     deleted_id = await cleanings_repo.delete_cleaning_by_id(id=id)
     if not deleted_id:
-        raise HTTPException(
-            status_code=HTTP_404_NOT_FOUND, 
-            detail="No cleaning found with that id.",
-        )
+        raise HTTPException(status_code=HTTP_404_NOT_FOUND, detail="No cleaning found with that id.")
+
     return deleted_id

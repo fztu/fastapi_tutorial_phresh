@@ -1,65 +1,35 @@
 import warnings
-import uuid
 import os
 
 import pytest
-import docker as pydocker
 from asgi_lifespan import LifespanManager
 
 from fastapi import FastAPI
 from httpx import AsyncClient
 from databases import Database
 
-import alembic
-from alembic.config import Config
-
 from app.models.cleaning import CleaningCreate, CleaningInDB
 from app.db.repositories.cleanings import CleaningsRepository
 
+import alembic
+from alembic.config import Config
 
+
+# Apply migrations at beginning and end of testing session
 @pytest.fixture(scope="session")
-def docker() -> pydocker.APIClient:
-    # base url is the unix socket we use to communicate with docker
-    return pydocker.APIClient(base_url="unix://var/run/docker.sock", version="auto")
-
-
-@pytest.fixture(scope="session", autouse=True)
-def postgres_container(docker: pydocker.APIClient) -> None:
-    """
-    Use docker to spin up a postgres container for the duration of the testing session.
-
-    Kill it as soon as all tests are run.
-
-    DB actions persist across the entirety of the testing session.
-    """
+def apply_migrations():
     warnings.filterwarnings("ignore", category=DeprecationWarning)
-
-    # pull image from docker
-    image = "postgres:12.1-alpine"
-    docker.pull(image)
-
-    # create the new container using
-    # the same image used by our database
-    container = docker.create_container(image=image, name=f"test-postgres-{uuid.uuid4()}", detach=True,)
-
-    docker.start(container=container["Id"])
-
+    os.environ["TESTING"] = "1"
     config = Config("alembic.ini")
 
-    try:
-        os.environ["DB_SUFFIX"] = "_test"
-        alembic.command.upgrade(config, "head")
-        yield container
-        alembic.command.downgrade(config, "base")
-    finally:
-        # remove container
-        docker.kill(container["Id"])
-        docker.remove_container(container["Id"])
+    alembic.command.upgrade(config, "head")
+    yield
+    alembic.command.downgrade(config, "base")
 
 
 # Create a new application for testing
 @pytest.fixture
-def app() -> FastAPI:
+def app(apply_migrations: None) -> FastAPI:
     from app.api.server import get_application
 
     return get_application()

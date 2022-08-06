@@ -2,7 +2,7 @@ from pydantic import EmailStr
 from fastapi import HTTPException, status
 
 from app.db.repositories.base import BaseRepository
-from app.models.user import UserCreate, UserUpdate, UserInDB, UserPublic
+from app.models.user import UserCreate, UserUpdate, UserInDB
 
 
 GET_USER_BY_EMAIL_QUERY = """
@@ -46,14 +46,14 @@ class UsersRepository(BaseRepository):
         if await self.get_user_by_email(email=new_user.email):
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
-                detail="That email is already taken. Login with that email or register with another one."
+                detail="That email is already taken. Login with that email or register with another one.",
             )
 
         # make sure username isn't already taken
         if await self.get_user_by_username(username=new_user.username):
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
-                detail="That username is already taken. Please try another one."                
+                detail="That username is already taken. Please try another one.",
             )
 
         created_user = await self.db.fetch_one(query=REGISTER_NEW_USER_QUERY, values={**new_user.dict(), "salt": "123"})
