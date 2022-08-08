@@ -45,7 +45,7 @@ The technology stack used to create the backend of this application is as follow
 - [Part 7: User auth in FastAPI with jwt tokens](https://www.jeffastor.com/blog/authenticating-users-in-fastapi-with-jwt-tokens) ✅🚂
 - [Part 8: Auth dependencies in FastAPI](https://www.jeffastor.com/blog/authentication-dependencies-in-fastapi) ✅🚂
 - [Part 9: Setting up user profiles in FastAPI](https://www.jeffastor.com/blog/setting-up-user-profiles-in-fastapi) ✅🚂
-- [Part 10: User owned resources in FastAPI](https://www.jeffastor.com/blog/user-owned-resources-in-fastapi) 🚂
+- [Part 10: User owned resources in FastAPI](https://www.jeffastor.com/blog/user-owned-resources-in-fastapi) ✅🚂
 - [Part 11: Marketplace functionality in FastAPI](https://www.jeffastor.com/blog/marketplace-functionality-in-fastapi) 🚂
 - [Part 12: Evaluations and SQL aggregations in FastAPI](https://www.jeffastor.com/blog/evaluations-and-sql-aggreations-in-fastapi) 🚂
 - [Part 13: Phresh frontend - bootstrapping a react app](https://www.jeffastor.com/blog/phresh-frontend-bootstrapping-a-react-app) 📱
