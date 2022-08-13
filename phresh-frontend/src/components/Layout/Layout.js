@@ -1,5 +1,6 @@
 import React from "react"
 import { Helmet } from "react-helmet"
+import { Navbar } from "../../components"
 import styled, { ThemeProvider } from "styled-components"
 import euiVars from "@elastic/eui/dist/eui_theme_light.json"
 import "@elastic/eui/dist/eui_theme_light.css"
@@ -40,6 +41,7 @@ export default function Layout({ children }) {
       </Helmet>
       <ThemeProvider theme={customTheme}>
         <StyledLayout>
+          <Navbar />
           <StyledMain>{children}</StyledMain>
         </StyledLayout>
       </ThemeProvider>
