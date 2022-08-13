@@ -49,7 +49,7 @@ The technology stack used to create the backend of this application is as follow
 - [Part 11: Marketplace functionality in FastAPI](https://www.jeffastor.com/blog/marketplace-functionality-in-fastapi) ✅🚂
 - [Part 12: Evaluations and SQL aggregations in FastAPI](https://www.jeffastor.com/blog/evaluations-and-sql-aggreations-in-fastapi) ✅🚂
 - [Part 13: Phresh frontend - bootstrapping a react app](https://www.jeffastor.com/blog/phresh-frontend-bootstrapping-a-react-app) ✅📱
-- [Part 14: Frontend navigation with react router](https://www.jeffastor.com/blog/frontend-navigation-with-react-router) 📱
+- [Part 14: Frontend navigation with react router](https://www.jeffastor.com/blog/frontend-navigation-with-react-router) ✅📱
 - [Part 15: Managing auth state with redux](https://www.jeffastor.com/blog/managing-auth-state-with-redux) 📱
 - [Part 16: Client-side protected routes and user registration](https://www.jeffastor.com/blog/client-side-protected-routes-and-user-registration) 📱
 - [Part 17: Consuming a FastAPI backend from a react frontend](https://www.jeffastor.com/blog/consuming-a-fastapi-backend-from-a-react-frontend) 🚂📱
