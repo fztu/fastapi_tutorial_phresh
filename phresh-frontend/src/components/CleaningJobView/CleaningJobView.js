@@ -2,17 +2,24 @@ import React from "react"
 import { connect } from "react-redux"
 import { Actions as cleaningActions } from "../../redux/cleanings"
 import {
+    EuiAvatar,
+    EuiFlexGroup,
+    EuiFlexItem,
     EuiPage,
     EuiPageBody,
     EuiPageSection,
-    EuiLoadingSpinner
-} from "@elastic/eui"
+    EuiLoadingSpinner,
+    EuiTitle,
+  } from "@elastic/eui"
 import { CleaningJobCard, NotFoundPage } from "../../components"
 import { useParams } from "react-router-dom"
 import styled from "styled-components"
 
 const StyledEuiPage = styled(EuiPage)`
   flex: 1;
+`
+const StyledFlexGroup = styled(EuiFlexGroup)`
+  padding: 1rem;
 `
 
 function CleaningJobView({
@@ -40,7 +47,21 @@ function CleaningJobView({
         <StyledEuiPage>
             <EuiPageBody component="section">
                 <EuiPageSection>
-                    <CleaningJobCard cleaningJob={currentCleaningJob} />
+                    <StyledFlexGroup justifyContent="flexStart" alignItems="center">
+                        <EuiFlexItem grow={false}>
+                            <EuiAvatar
+                                size="xl"
+                                name={currentCleaningJob.owner?.profile?.full_name || currentCleaningJob.owner?.username || "Anonymous"}
+                                initialsLength={2}
+                                imageUrl={currentCleaningJob.owner?.profile?.image}
+                            />
+                        </EuiFlexItem>
+                        <EuiFlexItem>
+                            <EuiTitle>
+                                <p>@{currentCleaningJob.owner?.username}</p>
+                            </EuiTitle>
+                        </EuiFlexItem>
+                    </StyledFlexGroup>
                 </EuiPageSection>
             </EuiPageBody>
         </StyledEuiPage>
