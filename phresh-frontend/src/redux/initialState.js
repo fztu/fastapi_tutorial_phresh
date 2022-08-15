@@ -6,6 +6,7 @@ export default {
     },
     cleanings: {
         isLoading: false,
+        isUpdating: false,
         error: null,
         data: {},
         currentCleaningJob: null
