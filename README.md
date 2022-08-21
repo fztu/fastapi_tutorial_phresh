@@ -54,7 +54,7 @@ The technology stack used to create the backend of this application is as follow
 - [Part 16: Client-side protected routes and user registration](https://www.jeffastor.com/blog/client-side-protected-routes-and-user-registration)✅📱
 - [Part 17: Consuming a FastAPI backend from a react frontend](https://www.jeffastor.com/blog/consuming-a-fastapi-backend-from-a-react-frontend)✅🚂📱
 - [Part 18: Edit user-owned cleaning resources with react and FastAPI](https://www.jeffastor.com/blog/edit-user-owned-cleaning-resources-with-react-and-fastapi)✅📱
-- [Part 19: Creating and viewing job offers with react and FastAPI](https://www.jeffastor.com/blog/creating-and-viewing-job-offers-with-react-and-fastapi)🚂📱
+- [Part 19: Creating and viewing job offers with react and FastAPI](https://www.jeffastor.com/blog/creating-and-viewing-job-offers-with-react-and-fastapi)🛄🚂📱
 - [Part 20: Approving and rejecting job offers with react and FastAPI](https://www.jeffastor.com/blog/approving-and-rejecting-job-offers-with-react-and-fastapi)🚂📱
 - [Part 21: Serving a paginated activity feed from FastAPI](https://www.jeffastor.com/blog/serving-a-paginated-activity-feed-from-fastapi)🚂📱
 - [Part 22: Designing a feed page for a FastAPI app](https://www.jeffastor.com/blog/designing-a-feed-page-for-a-fastapi-app)🚂📱
